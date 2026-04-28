@@ -1,0 +1,86 @@
+Three-Address Code Breakdown
+---------------------------
+Original Expression: ((s i g m a)/(r))^(12)-((s i g m a)/(r))^6
+
+Variables Found: s, i, g, m, a, r
+Operations Found: -, ^, /, *
+
+Step-by-step Three-Address Code:
+ID	|	Equation
+----------------------------------------------------------
+1	|	t7 = s * i
+2	|	t6 = t7 * g
+3	|	t5 = t6 * m
+4	|	t4 = t5 * a
+5	|	t3 = t4 / r
+6	|	t2 = t3 ^ 12
+7	|	t13 = s * i
+8	|	t12 = t13 * g
+9	|	t11 = t12 * m
+10	|	t10 = t11 * a
+11	|	t9 = t10 / r
+12	|	t8 = t9 ^ 6
+13	|	t1 = t2 - t8
+14	|	Result = t1
+---------------------------
+Parallel Execution Schedule:
+Batch	|	ID	|	Equation
+----------------------------------------------------------
+1	|	1	|	t7 = s * i
+1	|	7	|	t13 = s * i
+2	|	2	|	t6 = t7 * g
+2	|	8	|	t12 = t13 * g
+3	|	3	|	t5 = t6 * m
+3	|	9	|	t11 = t12 * m
+4	|	4	|	t4 = t5 * a
+4	|	10	|	t10 = t11 * a
+5	|	5	|	t3 = t4 / r
+5	|	11	|	t9 = t10 / r
+6	|	6	|	t2 = t3 ^ 12
+6	|	12	|	t8 = t9 ^ 6
+7	|	13	|	t1 = t2 - t8
+
+Parallel Execution Operation Summary:
+Batch	|	Operations Needed
+----------------------------------------------------------
+1	|	2x '*'
+2	|	2x '*'
+3	|	2x '*'
+4	|	2x '*'
+5	|	2x '/'
+6	|	2x '^'
+7	|	1x '-'
+
+Directed Acyclic Graph (Mermaid Syntax):
+```mermaid
+graph TD
+  s --> t7
+  i --> t7
+  t7 --> t6
+  g --> t6
+  t6 --> t5
+  m --> t5
+  t5 --> t4
+  a --> t4
+  t4 --> t3
+  r --> t3
+  t3 --> t2
+  12 --> t2
+  s --> t13
+  i --> t13
+  t13 --> t12
+  g --> t12
+  t12 --> t11
+  m --> t11
+  t11 --> t10
+  a --> t10
+  t10 --> t9
+  r --> t9
+  t9 --> t8
+  6 --> t8
+  t2 --> t1
+  t8 --> t1
+  t1 --> Result
+```
+
+Parsed successfully using MathLive and Math.js.

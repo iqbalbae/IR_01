@@ -1,0 +1,32 @@
+{
+  "name": "math-breakdown-app",
+  "version": "1.0.0",
+  "description": "Cross-platform mathematical expression breakdown tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": [],
+  "author": "Antigravity",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^29.1.5",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.example.mathbreakdown",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

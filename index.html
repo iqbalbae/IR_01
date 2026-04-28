@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Expression Breakdown</title>
+  <!-- MathLive -->
+  <script defer src="https://unpkg.com/mathlive"></script>
+  <!-- Math.js -->
+  <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Math Breakdown</h1>
+      <p>Enter a mathematical expression and break it down into its basic operations.</p>
+    </header>
+
+    <main>
+      <div class="editor-container">
+        <label for="math-input">Visual Equation Editor</label>
+        <!-- The MathLive Element -->
+        <math-field id="math-input" virtual-keyboard-mode="manual">
+          \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+        </math-field>
+      </div>
+
+      <div class="data-upload-container">
+        <label for="data-file">Optional: Upload Data File (CSV/TXT)</label>
+        <p class="help-text">First row must contain variable headers (e.g., a,b,c).</p>
+        <input type="file" id="data-file" accept=".txt,.csv" />
+        <div class="template-actions">
+          <button id="download-csv-btn" class="secondary-btn">Template (.csv)</button>
+          <button id="download-txt-btn" class="secondary-btn">Template (.txt)</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="breakdown-btn">Breakdown & Save</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+    </main>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>

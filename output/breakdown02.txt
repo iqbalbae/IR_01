@@ -1,0 +1,13 @@
+Expression Breakdown
+---------------------------
+Original Expression: (2y)/(4)+x-3
+
+Operations Found:
+- Addition (+): 1
+- Subtraction (-): 1
+- Multiplication (*): 1
+- Division (/): 1
+
+Total Basic Operations: 4
+---------------------------
+Parsed successfully using MathLive and Math.js.
